@@ -1,8 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
-
-
-
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
 
 body {
     background: black;
@@ -11,8 +8,8 @@ body {
     font-family: "Patrick Hand SC", cursive;
     font-weight: 400;
     font-style: normal;
-    height: 100vh; /* Ensure body takes full viewport height */
-    overflow: hidden; /* Prevent scrolling */
+    height: 100vh;
+    overflow: hidden;
 }
 
 .container {
@@ -25,16 +22,18 @@ body {
 }
 
 .candle-wrapper {
-    position: relative; /* Position relative to container */
+    position: relative;
+    margin-top: 0;
 }
 
 .candle {
     width: 150px;
     height: 300px;
     border-radius: 150px / 40px;
-    box-shadow: inset 20px -30px 50px 0 rgba(0, 0, 0, 0.4), inset -20px 0 50px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: inset 20px -30px 50px 0 rgba(0, 0, 0, 0.4),
+        inset -20px 0 50px 0 rgba(0, 0, 0, 0.4);
     background: linear-gradient(#e48825, #e78e0e, #833c03, #4c1a03 50%, #1c0900);
-    position: relative; /* Ensure positioning for child elements */
+    position: relative;
 }
 
 .candle:before {
@@ -92,7 +91,8 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 50% 50% 20% 20%;
-    box-shadow: 0 0 15px 0 rgba(247, 93, 0, .4), 0 -6px 4px 0 rgba(247, 128, 0, .7);
+    box-shadow: 0 0 15px 0 rgba(247, 93, 0, 0.4),
+        0 -6px 4px 0 rgba(247, 128, 0, 0.7);
 }
 
 @keyframes moveFlame {
@@ -121,8 +121,10 @@ body {
     left: 50%;
     top: -48px;
     transform: translateX(-50%);
-    background: rgba(0, 133, 255, .7);
-    box-shadow: 0 -40px 30px 0 #dc8a0c, 0 40px 50px 0 #dc8a0c, inset 3px 0 2px 0 rgba(0, 133, 255, .6), inset -3px 0 2px 0 rgba(0, 133, 255, .6);
+    background: rgba(0, 133, 255, 0.7);
+    box-shadow: 0 -40px 30px 0 #dc8a0c, 0 40px 50px 0 #dc8a0c,
+        inset 3px 0 2px 0 rgba(0, 133, 255, 0.6),
+        inset -3px 0 2px 0 rgba(0, 133, 255, 0.6);
 }
 
 .blinking-glow {
@@ -135,87 +137,120 @@ body {
     border-radius: 50%;
     background: #ff6000;
     filter: blur(60px);
-    animation: blinkIt .1s infinite;
+    animation: blinkIt 0.1s infinite;
 }
 
 @keyframes blinkIt {
-    50% { opacity: .8;}
+    50% {
+        opacity: 0.8;
+    }
 }
 
 .text-wrapper {
     position: absolute;
-    bottom: -10px; /* Move text slightly lower to overlay the bottom of the candle */
+    bottom: 15%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
+    z-index: 1;
+}
+
+.button-container {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .text-line {
-    font-size: 5.25rem; /* Increased size by 25% from the previous 5rem */
+    font-size: 3rem;
     font-weight: bold;
     color: #fff;
-    margin: 0; /* Remove default margin */
-    display: block; /* Ensure block layout for vertical stacking */
+    margin: 0;
+    display: block;
 }
 
 @media (max-width: 768px) {
     .text-line {
-        font-size: 4.5rem; /* Increased size for tablets */
-        margin-bottom: -10px; /* Decrease space between lines */
+        font-size: 2.5rem;
+        margin-bottom: -10px;
+    }
+
+    .candle {
+        width: 120px;
+        height: 240px;
+    }
+
+    .flame {
+        width: 20px;
+        height: 100px;
+    }
+
+    .glow {
+        width: 20px;
+        height: 40px;
     }
 }
 
 @media (max-width: 576px) {
     .text-line {
-        font-size: 3.75rem; /* Increased size for mobile phones */
-        margin-bottom: -10px; /* Decrease space between lines */
+        font-size: 1.2rem;
+        margin-bottom: -10px;
     }
-}
 
-.button-container {
-    font-family: "Shadows Into Light", cursive;
-    font-weight: 400;
-    font-style: normal;
-    position: absolute;
-    bottom: 5%; /* Adjusted for consistent spacing */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%; /* Ensure the container is full width for centering */
-    display: flex;
-    justify-content: center; /* Center button horizontally */
+    .candle {
+        width: 100px;
+        height: 200px;
+    }
+
+    .flame {
+        width: 18px;
+        height: 80px;
+    }
+
+    .glow {
+        width: 15px;
+        height: 30px;
+    }
+    .candle-wrapper {
+        top: 10%;
+    }
 }
 
 .surprise-button {
     display: inline-block;
-    padding: 10px 20px; /* Fixed padding to ensure text fits in one line */
-    font-size: 1.2rem; /* Adjust size for readability */
+    padding: 10px 20px;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #fff;
-    background-color: #ff6000; /* Adjust color to match your design */
-    border-radius: 50px; /* Pill shape */
+    background-color: #ff6000;
+    border-radius: 50px;
     text-decoration: none;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, transform 0.3s;
-    opacity: 0.9; /* Set opacity to 90% */
-    white-space: nowrap; /* Prevent text from wrapping */
+    opacity: 0.9;
+    white-space: nowrap;
 }
 
 .surprise-button:hover {
-    background-color: #e85500; /* Darker shade on hover */
-    transform: scale(1.05); /* Slightly enlarge button on hover */
+    background-color: #e85500;
+    transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
     .surprise-button {
-        font-size: 1rem; /* Adjust size for tablets */
-        padding: 12px 24px; /* Adjust padding for tablets */
+        font-size: 1rem;
+        padding: 12px 24px;
     }
 }
 
 @media (max-width: 576px) {
     .surprise-button {
-        font-size: 0.9rem; /* Adjust size for mobile phones */
-        padding: 15px 30px; /* Adjust padding for mobile phones */
+        font-size: 0.9rem;
+        padding: 10px 20px;
     }
 }
