@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+
+
+
+body {
+    background: black;
+    margin: 0;
+    padding: 0;
+    font-family: "Patrick Hand SC", cursive;
+    font-weight: 400;
+    font-style: normal;
+    height: 100vh; /* Ensure body takes full viewport height */
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.candle-wrapper {
+    position: relative; /* Position relative to container */
+}
+
+.candle {
+    width: 150px;
+    height: 300px;
+    border-radius: 150px / 40px;
+    box-shadow: inset 20px -30px 50px 0 rgba(0, 0, 0, 0.4), inset -20px 0 50px 0 rgba(0, 0, 0, 0.4);
+    background: linear-gradient(#e48825, #e78e0e, #833c03, #4c1a03 50%, #1c0900);
+    position: relative; /* Ensure positioning for child elements */
+}
+
+.candle:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 0 !important;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #d47401;
+    background: radial-gradient(#eaa121, #8e4901 45%, #b86409 80%);
+    top: -40px;
+}
+
+.candle:after {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    top: 14px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+    background: radial-gradient(rgba(0, 0, 0, 0.6), transparent 45%);
+}
+
+.thread {
+    position: absolute;
+    width: 6px;
+    height: 36px;
+    top: -17px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 40% 40% 0 0;
+    background: linear-gradient(#d6994a, #4b232c, #121212, black, #e8bb31 90%);
+}
+
+.flame {
+    position: absolute;
+    width: 24px;
+    height: 120px;
+    left: 50%;
+    transform-origin: 50% 100%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    border-radius: 50% 50% 20% 20%;
+    background: linear-gradient(white 80%, transparent);
+    animation: moveFlame 6s linear infinite, enlargeFlame 5s linear infinite;
+}
+
+.flame:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 50% 20% 20%;
+    box-shadow: 0 0 15px 0 rgba(247, 93, 0, .4), 0 -6px 4px 0 rgba(247, 128, 0, .7);
+}
+
+@keyframes moveFlame {
+    0%, 100% {
+        transform: translateX(-50%) rotate(-2deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(2deg);
+    }
+}
+
+@keyframes enlargeFlame {
+    0%, 100% {
+        height: 120px;
+    }
+    50% {
+        height: 140px;
+    }
+}
+
+.glow {
+    position: absolute;
+    width: 26px;
+    height: 60px;
+    border-radius: 50% 50% 35% 35%;
+    left: 50%;
+    top: -48px;
+    transform: translateX(-50%);
+    background: rgba(0, 133, 255, .7);
+    box-shadow: 0 -40px 30px 0 #dc8a0c, 0 40px 50px 0 #dc8a0c, inset 3px 0 2px 0 rgba(0, 133, 255, .6), inset -3px 0 2px 0 rgba(0, 133, 255, .6);
+}
+
+.blinking-glow {
+    position: absolute;
+    width: 100px;
+    height: 180px;
+    left: 50%;
+    top: -55%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: #ff6000;
+    filter: blur(60px);
+    animation: blinkIt .1s infinite;
+}
+
+@keyframes blinkIt {
+    50% { opacity: .8;}
+}
+
+.text-wrapper {
+    position: absolute;
+    bottom: -10px; /* Move text slightly lower to overlay the bottom of the candle */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.text-line {
+    font-size: 5.25rem; /* Increased size by 25% from the previous 5rem */
+    font-weight: bold;
+    color: #fff;
+    margin: 0; /* Remove default margin */
+    display: block; /* Ensure block layout for vertical stacking */
+}
+
+@media (max-width: 768px) {
+    .text-line {
+        font-size: 4.5rem; /* Increased size for tablets */
+        margin-bottom: -10px; /* Decrease space between lines */
+    }
+}
+
+@media (max-width: 576px) {
+    .text-line {
+        font-size: 3.75rem; /* Increased size for mobile phones */
+        margin-bottom: -10px; /* Decrease space between lines */
+    }
+}
+
+.button-container {
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 400;
+    font-style: normal;
+    position: absolute;
+    bottom: 5%; /* Adjusted for consistent spacing */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%; /* Ensure the container is full width for centering */
+    display: flex;
+    justify-content: center; /* Center button horizontally */
+}
+
+.surprise-button {
+    display: inline-block;
+    padding: 10px 20px; /* Fixed padding to ensure text fits in one line */
+    font-size: 1.2rem; /* Adjust size for readability */
+    font-weight: bold;
+    color: #fff;
+    background-color: #ff6000; /* Adjust color to match your design */
+    border-radius: 50px; /* Pill shape */
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+    opacity: 0.9; /* Set opacity to 90% */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.surprise-button:hover {
+    background-color: #e85500; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+@media (max-width: 768px) {
+    .surprise-button {
+        font-size: 1rem; /* Adjust size for tablets */
+        padding: 12px 24px; /* Adjust padding for tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .surprise-button {
+        font-size: 0.9rem; /* Adjust size for mobile phones */
+        padding: 15px 30px; /* Adjust padding for mobile phones */
+    }
+}
